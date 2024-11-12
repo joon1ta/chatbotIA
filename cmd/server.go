@@ -1,6 +1,7 @@
 package main
 
 import (
+	"chatbotIA/pkg"
 	"chatbotIA/routes"
 	"log"
 	"net/http"
@@ -21,6 +22,9 @@ func main() {
 	if port == "" {
 		port = "8080" //Valor predeterminado si no se encuentra el puerto en .env
 	}
+
+	// Conectar la base de datos
+	pkg.ConnectDatabase()
 
 	//Registrar las rutas
 	routes.RegisterRoutes()
